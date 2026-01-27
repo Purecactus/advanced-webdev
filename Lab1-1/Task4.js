@@ -1,6 +1,6 @@
 /* Task: Write a function to calculate the factorial of a number */
 
-/*
+/* Basic facrorial of a given number
 function factorial(num) {
   if (num === 0) {
     return 1;
