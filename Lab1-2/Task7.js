@@ -10,12 +10,12 @@ Task:
 // Creating the array of fruits:
 const fruits = ["apple", "banana", "apple", "cherry", "banana", "apple"];
 
-// !!! The shape of the reduce fucntion is important
+// !!! The shape of the reduce function is very important !!!
 
 /*
     - With map      ->  I build a new array
     - With filter   ->  I build a smaller array
-    - With reduce   ->  I build anything (number, object, array string, ..., you name it)
+    - With reduce   ->  I build anything (number, object, array, string, ... , you name it)
 */
 
 /*
@@ -34,6 +34,29 @@ console.log(result);
 /* 
 Now for some explaining: 
     1. fruits.reduce(...)
+        This goes through the "fruits" array from left to right, one item at a time
 
-    
+    2. (accumulator, fruit) => { ... }
+        This is the callback function that runs once per item...
+            - The accumulator = the object that we are building up over time
+            - The fruit = the current element from the array
+
+    3. accumulator[fruit] = (accumulator[fruit] || 0) + 1;
+        This is called a dynamic property access:
+            - if: fruit === "apple"
+            - then: accumulator[fruit] === accumulator["apple"]
+            - so: accumulator["apple"]
+
+        But what does (accumulator[fruit] || 0) mean?
+            - If accumulator[fruit] exists -> use it
+            - If it doesn't exist (undefined) -> use 0
+        
+    4. return accumulator; 
+        "Pass the updated object into the next iteration"
+        if you don't return it, the "reduce" breaks, and the accumulator becomes "undefined"
+
+    5. The {} at the end?
+        Basically, it tells the program to start the accumulator as an empty object...
+
+        Without it, the first fruit would incorrectly become the accumulator
 */
