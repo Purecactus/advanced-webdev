@@ -3,7 +3,7 @@
 let car = {
   brand: "Volvo",
   model: "ES90",
-  year: "2026",
+  year: 2026,
   color: "Black",
   isElectric: true,
 };

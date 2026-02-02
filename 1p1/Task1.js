@@ -2,7 +2,7 @@
 console. */
 
 let myString = "Hello";
-let myNumber = 4;
+let myValue = 4;
 let myBoolean = true;
 let myNull = null;
 
