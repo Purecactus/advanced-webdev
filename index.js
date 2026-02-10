@@ -53,6 +53,10 @@ Task:
     2. Write JavaScript to log all child nodes of the <div> .
 */
 
+let container2 = document.getElementById("container2");
+let nodes = container2.childNodes;
+console.log(nodes);
+
 // !!! Assignment 5. !!!
 /*
 
