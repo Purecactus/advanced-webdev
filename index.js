@@ -166,6 +166,9 @@ Task:
     2. Write JavaScript to change the content of the paragraph to: "DOM Manipulation is fun!"
 */
 
+let paragraph = document.getElementById("paragraph");
+paragraph.innerText = "DOM Manipulation is fun!";
+
 // !!! Assignment 2. !!!
 /*
 Objective: Learn how to modify element styles dynamically.
@@ -174,6 +177,13 @@ Task:
     1. Create a <button> and a <div> with some placeholder text.
     2. Write JavaScript to change the <div> 's text color to blue when the button is clicked.
 */
+
+let button = document.getElementById("colorChangeButton");
+let colorChange = document.getElementById("colorChange");
+
+button.addEventListener("click", function () {
+  colorChange.style.color = "blue";
+});
 
 // !!! Assignment 3. !!!
 /*
@@ -184,6 +194,19 @@ Task:
     2. Use JavaScript to add 3 <li> elements dynamically, each with unique text.
 */
 
+let myEmptyList = document.getElementById("myEmptyList");
+let item1 = document.createElement("li");
+let item2 = document.createElement("li");
+let item3 = document.createElement("li");
+
+item1.innerText = "I am the first item";
+item2.innerText = "I am the second item";
+item3.innerText = "I am the third item";
+
+myEmptyList.appendChild(item1);
+myEmptyList.appendChild(item2);
+myEmptyList.appendChild(item3);
+
 // !!! Assignment 4. !!!
 /*
 Objective: Learn how to remove an element from the DOM.
@@ -192,6 +215,16 @@ Task:
     1. Add a button and a <div> with an ID of removeMe .
     2. Write JavaScript to remove the <div> when the button is clicked.
 */
+
+let remover = document.getElementById("remover");
+let removeMe = document.getElementById("removeMe");
+
+removeMe.style.background = "green";
+removeMe.style.marginBottom = "20px";
+
+remover.addEventListener("click", function () {
+  removeMe.remove();
+});
 
 // !!! Assignment 5. !!!
 /*
@@ -202,6 +235,13 @@ Task:
     2. When the user types in the input field, display the typed text in real-time in the <div> .
 */
 
+let myInput = document.getElementById("myInput");
+let myDisplay = document.getElementById("myDisplay");
+
+myInput.addEventListener("input", function () {
+  myDisplay.innerText = myInput.value;
+});
+
 // !!! Assignment 6. !!!
 /*
 Objective: Learn how to hide and show elements.
@@ -210,6 +250,17 @@ Task:
     1. Add a button and a <p> with some text.
     2. Write JavaScript to toggle the visibility of the <p> when the button is clicked.
 */
+
+let toggleVis = document.getElementById("toggleVis");
+let vis = document.getElementById("vis");
+
+toggleVis.addEventListener("click", function () {
+  if (vis.style.display === "none") {
+    vis.style.display = "block";
+  } else {
+    vis.style.display = "none";
+  }
+});
 
 // !!! Assignment 7. !!!
 /*
@@ -220,6 +271,12 @@ Task:
     2. Add JavaScript to toggle a class highlight on the <div> when clicked.
 */
 
+let thisBox = document.getElementById("thisBox");
+
+thisBox.addEventListener("click", function () {
+  thisBox.classList.toggle("highlight");
+});
+
 // !!! Assignment 8. !!!
 /*
 Objective: Track user interactions.
@@ -228,6 +285,16 @@ Task:
     1. Add a button and a <p> that displays the number of times the button is clicked.
     2. Update the <p> dynamically with each click.
 */
+
+let clickCounter = document.getElementById("clickCounter");
+let numberOfClicks = document.getElementById("numberOfClicks");
+
+let count = 0;
+
+clickCounter.addEventListener("click", function () {
+  count++;
+  numberOfClicks.innerText = "Number of clicks:" + count;
+});
 
 // !!! Assignment 9. !!!
 /*
@@ -238,6 +305,13 @@ Task:
     2. Display the selected option in a <p> when the user makes a selection.
 */
 
+let selectOptions = document.getElementById("selectOptions");
+let displaySelection = document.getElementById("displaySelection");
+
+selectOptions.addEventListener("change", function () {
+  displaySelection.innerText = "Selected: " + selectOptions.value;
+});
+
 // !!! Assignment 10. !!!
 /*
 Objective: Combine multiple DOM manipulation techniques.
@@ -247,3 +321,22 @@ Task:
     2. Add items to the <ul> when the button is clicked, using the input value.
     3. Clear the input after adding an item.
 */
+
+let toDoInp = document.getElementById("toDoInp");
+let toDoBtn = document.getElementById("toDoBtn");
+let toDoUl = document.getElementById("toDoUl");
+
+toDoBtn.addEventListener("click", function () {
+  let text = toDoInp.value;
+  if (text.trim() === "") return;
+
+  let li = document.createElement("li");
+  li.innerText = text;
+
+  li.addEventListener("click", function () {
+    li.remove();
+  });
+
+  toDoUl.appendChild(li);
+  toDoInp.value = "";
+});
