@@ -340,3 +340,32 @@ toDoBtn.addEventListener("click", function () {
   toDoUl.appendChild(li);
   toDoInp.value = "";
 });
+
+// 3p1 Starts here: ===============================================================
+//=================================================================================
+//=================================================================================
+
+// !!! Assignment 1. !!!
+/*
+
+Task:
+  1. Use the fetch API to download the given file. const source = 'https://gist.githubusercontent.com/mapoto/515827c73f7f60a14cf2914f0cca16f0/raw/c41bc850bc989cadf6a1caa394ab12fce105d59e/countries.json';
+
+  2. The resulting data object is an array of country objects. Loop over it and create in your webpage a list of the names of these countries.
+*/
+
+const countryList = document.getElementById("countryList");
+const source =
+  "https://gist.githubusercontent.com/mapoto/515827c73f7f60a14cf2914f0cca16f0/raw/c41bc850bc989cadf6a1caa394ab12fce105d59e/countries.json";
+
+fetch(source)
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    data.forEach((country) => {
+      const li = document.createElement("li");
+      li.textContent = country.name;
+      countryList.appendChild(li);
+    });
+  });
